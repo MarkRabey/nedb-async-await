@@ -5,8 +5,12 @@
   "main": "./dist/index.js",
   "scripts": {
     "clean": "rm -rf dist",
+    "predev": "npm run clean",
+    "dev": "tsc-watch -p ./tsconfig.json --onSuccess \"node ./dist/index.js\" --onFailure \"echo Beep! Compilation Failed\"",
     "prebuild": "npm run clean",
     "build": "tsc",
+    "postbuild": "npm run uglify",
+    "uglify": "uglifyjs -c -m -o ./dist/index.js -- ./dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -28,11 +32,17 @@
   },
   "devDependencies": {
     "@types/nedb": "^1.8.5",
+    "@types/node": "^9.6.7",
     "husky": "^0.14.3",
     "lint-staged": "^7.0.5",
     "prettier": "^1.12.1",
     "ts-node": "^6.0.1",
+    "tsc-watch": "^1.0.21",
     "tslint": "^5.9.1",
-    "typescript": "^2.8.3"
+    "typescript": "^2.8.3",
+    "uglify-js": "^3.3.22"
+  },
+  "dependencies": {
+    "nedb": "^1.8.0"
   }
 }
