@@ -5,6 +5,7 @@
   "main": "./dist/index.js",
   "scripts": {
     "precommit": "lint-staged",
+    "prepublish": "npm run build",
     "clean": "rm -rf dist",
     "predev": "npm run clean",
     "dev": "tsc-watch -p ./tsconfig.json --onSuccess \"node ./dist/index.js\" --onFailure \"echo Beep! Compilation Failed\"",
