@@ -1,15 +1,1 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var NeDB = require("nedb");
-var util_1 = require("util");
-var createDatastore = function (datastore) {
-    var asyncDatastore = { nedb: datastore };
-    var asyncMethods = ['loadDatabase', 'insert', 'find', 'findOne', 'count', 'update', 'remove', 'ensureIndex', 'removeIndex'];
-    asyncMethods.forEach(function (method) {
-        asyncDatastore[method] = util_1.promisify(datastore[method].bind(datastore));
-    });
-    return asyncDatastore;
-};
-exports.Datastore = function (options) {
-    return createDatastore(new NeDB(options));
-};
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var NeDB=require("nedb"),util_1=require("util"),createDatastore=function(r){var t={nedb:r};return["loadDatabase","insert","find","findOne","count","update","remove","ensureIndex","removeIndex"].forEach(function(e){t[e]=util_1.promisify(r[e].bind(r))}),t};exports.Datastore=function(e){return createDatastore(new NeDB(e))};
