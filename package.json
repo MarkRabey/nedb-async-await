@@ -21,10 +21,21 @@
   "keywords": [
     "nedb",
     "promise",
-    "async"
+    "async",
+    "await"
   ],
-  "author": "Mark Rabey<mark@markrabey.com>",
-  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:MarkRabey/nedb-async-await.git"
+  },
+  "author": {
+    "name": "Mark Rabey",
+    "email": "mark@markrabey.com"
+  },
+  "bugs": {
+    "url": "https://github.com/MarkRabey/nedb-async-await/issues"
+  },
+  "license": "SEE LICENSE",
   "lint-staged": {
     "{src,test,mocks}/**/*.{js,ts,tsx,json,css,scss,md}": [
       "prettier --config ./.prettierrc --write",
