@@ -1,0 +1,4 @@
+.npmignore
+.gitignore
+test/
+.nyc_output/
