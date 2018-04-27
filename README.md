@@ -1,4 +1,4 @@
-# NEDB Async/Await
+# NeDB Async/Await
 
-> Async/Await (Promise) Wrapper for NEDB
+> Async/Await (Promise) Wrapper for NeDB
 
