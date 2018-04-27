@@ -4,6 +4,9 @@
   "description": "Adds async/await to NeDB",
   "main": "./dist/index.js",
   "scripts": {
+    "clean": "rm -rf dist",
+    "prebuild": "npm run clean",
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -13,6 +16,16 @@
   ],
   "author": "Mark Rabey<mark@markrabey.com>",
   "license": "MIT",
+  "lint-staged": {
+    "{src,test,mocks}/**/*.{js,ts,tsx,json,css,scss,md}": [
+      "prettier --config ./.prettierrc --write",
+      "git add"
+    ],
+    "{src,test,mocks}/**/*.{js,ts,tsx}": [
+      "tslint --project ./tsconfig.json --fix",
+      "git add"
+    ]
+  },
   "devDependencies": {
     "@types/nedb": "^1.8.5",
     "husky": "^0.14.3",
