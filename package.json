@@ -4,6 +4,7 @@
   "description": "Adds async/await to NeDB",
   "main": "./dist/index.js",
   "scripts": {
+    "precommit": "lint-staged",
     "clean": "rm -rf dist",
     "predev": "npm run clean",
     "dev": "tsc-watch -p ./tsconfig.json --onSuccess \"node ./dist/index.js\" --onFailure \"echo Beep! Compilation Failed\"",
@@ -11,6 +12,7 @@
     "build": "tsc",
     "postbuild": "npm run uglify",
     "uglify": "uglifyjs -c -m -o ./dist/index.js -- ./dist/index.js",
+    "lint": "tslint '{src,test,mocks}/**/*.{ts,tsx}' --project ./tsconfig.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
