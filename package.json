@@ -1,0 +1,16 @@
+{
+  "name": "nedb-async-await",
+  "version": "0.1.0",
+  "description": "Adds async/await to NEDB",
+  "main": "./dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nedb",
+    "promise",
+    "async"
+  ],
+  "author": "Mark Rabey<mark@markrabey.com>",
+  "license": "MIT"
+}
