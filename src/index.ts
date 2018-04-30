@@ -1,5 +1,4 @@
 import * as NeDB from 'nedb';
-import { promisify } from 'util';
 import * as thenify from 'thenify';
 
 const createDatastore = (datastore: NeDB) => {
