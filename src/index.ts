@@ -1,5 +1,6 @@
 import * as NeDB from 'nedb';
 import { promisify } from 'util';
+import * as thenify from 'thenify';
 
 const createDatastore = (datastore: NeDB) => {
   const asyncDatastore: any = { nedb: datastore };
@@ -16,7 +17,7 @@ const createDatastore = (datastore: NeDB) => {
   ];
 
   asyncMethods.forEach(method => {
-    asyncDatastore[method] = promisify(datastore[method].bind(datastore));
+    asyncDatastore[method] = thenify(datastore[method].bind(datastore));
   });
 
   return asyncDatastore;

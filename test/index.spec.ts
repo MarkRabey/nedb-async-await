@@ -7,7 +7,7 @@ chai.use(chaiAsPromised);
 chai.should();
 
 describe('Datastore', () => {
-  const db = Datastore({ autoload: true });
+  const db = Datastore({ filename: 'test-data.json', autoload: true });
 
   beforeEach(async function() {
     await db.remove({}, { multi: true });
@@ -21,9 +21,16 @@ describe('Datastore', () => {
   });
 
   describe('find()', function() {
-    it('responds with matching records', async function() {
-      const documents = await db.find({});
-      documents.should.have.length(5);
+    it('responds with all records', async function() {
+      const docs = await db.find({});
+      docs.should.have.length(5);
+    });
+  });
+
+  describe('findOne()', function() {
+    it('responds with one matching record', async function() {
+      const doc = await db.findOne({ number: 5 });
+      doc.number.should.equal(5);
     });
   });
 });
